@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inheritance Demonstration</title>
+</head>
+
+<body>
+    <h1>IP Lab-4 Q3</h1>
+    <p>Enter roll number of student</p>
+    <input id="checkError" type="text" placeholder="Roll number" value="" />
+    <button type="submit" onclick="return errorCheck()">Submit</button>
+</body>
+<script>
+    class Person {
+        constructor(fname, lname, gender, age) {
+            this.fname = fname;
+            this.lname = lname;
+            this.gender = gender;
+            this.age = age;
+        }
+    }
+
+    class Child extends Person {
+        constructor(fname, lname, gender, age, location) {
+            super(fname, lname, gender, age);
+            this.location = location;
+        }
+    }
+
+    const Candidate1 = new Child("Jenil", "Shah", "M", 25, "Coorg");
+    console.log("Candidate 1: ", Candidate1);
+
+    const Candidate2 = new Child("Soham", "Raka", "F", 29);
+    console.log("Candidate 2: ", Candidate2);
+
+    const errorCheck = () => {
+        const value = document.getElementById("checkError").value;
+        console.log(value);
+        if (value > 0) {
+            console.log("Valid Roll number");
+        } else {
+            throw new Error("Invalid roll number");
+        }
+    };
+</script>
+
+</html>
